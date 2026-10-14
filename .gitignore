@@ -38,7 +38,7 @@ backups/
 # Keep only the current distributable ZIPs in Git; preserve older files locally.
 /dist/*.zip
 /dist/*.zip.sha256
-!/dist/clash-go-0.2.1.zip
-!/dist/clash-go-0.2.1.zip.sha256
+!/dist/clash-go-0.2.2.zip
+!/dist/clash-go-0.2.2.zip.sha256
 !/dist/desktop-diary-0.2.2.zip
 !/dist/desktop-diary-0.2.2.zip.sha256

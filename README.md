@@ -5,7 +5,7 @@
 | 应用 | 版本 | 功能 | 发布包 |
 | --- | --- | --- | --- |
 | [Desktop Diary](desktop-diary/README.md) | 0.2.2 | 每 30 秒观察桌面，按设备记录 TXT，中文标签云；独立的本地 OCR / 远程视觉模式 | [ZIP](dist/desktop-diary-0.2.2.zip) · [SHA-256](dist/desktop-diary-0.2.2.zip.sha256) |
-| [Clash Go](clash-go/README.md) | 0.2.1 | Mihomo 代理、USB 网络共享、oixCloud、HTTPS 网络配置、触摸节点选择与延迟 | [ZIP](dist/clash-go-0.2.1.zip) · [SHA-256](dist/clash-go-0.2.1.zip.sha256) |
+| [Clash Go](clash-go/README.md) | 0.2.2 | Mihomo 代理、USB 网络共享、oixCloud、HTTPS 网络配置、节点延迟与彩色国旗 | [ZIP](dist/clash-go-0.2.2.zip) · [SHA-256](dist/clash-go-0.2.2.zip.sha256) |
 
 ## 安装
 

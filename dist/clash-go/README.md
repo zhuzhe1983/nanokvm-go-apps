@@ -1,6 +1,8 @@
-# Clash Go 0.2.1
+# Clash Go 0.2.2
 
 NanoKVM Go+ ARM32 的 Mihomo 代理与 USB 网络共享应用。应用列表使用英文名称，应用内由 FreeType 渲染中文。参考 OpenClash 的订阅、策略组、服务开关设计；不安装依赖 OpenWrt 的 LuCI / OpenClash 软件包。
+
+节点名称中的国旗、Emoji 和组合字符由系统 Pango/Cairo 排版，并使用设备已安装的字体回退与彩色 Emoji 字体；普通中文、英文保留轻量 FreeType 绘制。测量、截断和绘制使用同一排版结果，截断不会拆开国旗或 Emoji 连接序列。名称原文仍用于选节点和测速，不修改订阅内容。应用不安装或替换系统字体；旧固件缺少 Pango/Cairo 时，国旗降级显示 `[HK]`、`[US]` 等地区代码。
 
 ## 使用
 
@@ -30,7 +32,7 @@ NanoKVM Go+ ARM32 的 Mihomo 代理与 USB 网络共享应用。应用列表使�
 
 配置、Access Token、订阅、运行内核和节点缓存在 `/var/lib/nanokvm-agent/clash-go/`（目录 0700 / 配置 0600）。网页不回传 Token 或订阅密钥；套餐显示最近一次成功刷新的时间。Token 通过 stdin 交给官方账号客户端；专用核心运行时从私有进程环境读取，命令行不带 Token。网站使用带限速的配置码登录、HttpOnly/Secure/SameSite cookie、同源写入校验。Mihomo 管理 API 和调试混合代理端口只监听回环地址；局域网通过 HTTPS 配置页管理。
 
-安装：`python3 build.py` 生成 `../dist/clash-go-0.2.1.zip`，上传 NanoKVM App 安装页，后置脚本安装 systemd 服务及包内经 SHA-256 校验的官方 Mihomo **v1.19.32 ARMv7** 以及专用 **alpha-oix-9a6b3c1 ARMv7**；两者按节点来源启动其中一个。专用核心固定版本和 SHA-256，来自滚动 Pre-Alpha 发布，不自动替换内核。不需要安装 Python 第三方依赖，不覆盖共享 `appbase` SDK。
+安装：`python3 build.py` 生成 `../dist/clash-go-0.2.2.zip`，上传 NanoKVM App 安装页，后置脚本安装 systemd 服务及包内经 SHA-256 校验的官方 Mihomo **v1.19.32 ARMv7** 以及专用 **alpha-oix-9a6b3c1 ARMv7**；两者按节点来源启动其中一个。专用核心固定版本和 SHA-256，来自滚动 Pre-Alpha 发布，不自动替换内核。不需要安装 Python 第三方依赖，不覆盖共享 `appbase` SDK。
 
 停用：先从页面关闭 USB 共享，再 `systemctl disable --now clash-go.service`。删除应用前也应先停止服务，保留数据目录可恢复订阅；需要彻底清理时再单独处理其中的私有配置。
 

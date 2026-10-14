@@ -3,7 +3,7 @@
   "name": "Clash Go",
   "creator": "zhuzhe",
   "create_time": "2026-10-14",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "desc": "USB network sharing, Mihomo proxy switch, nodes and network settings.",
   "category": "network",
   "post_script": "scripts/install.sh"
