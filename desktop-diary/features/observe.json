@@ -1,0 +1,8 @@
+{
+  "api_version": "nanokvm.agent/v1",
+  "id": "observe-desktop",
+  "skill": "desktop-observation",
+  "enabled": true,
+  "trigger": {"type": "interval", "config_key": "interval_seconds"},
+  "config": {"backend_key": "backend", "output": "daily_txt"}
+}

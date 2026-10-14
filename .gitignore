@@ -1,0 +1,44 @@
+# Local device notes, browser state, screenshots, and test output.
+/.local/
+/AGENTS.md
+**/VALIDATION.md
+**/.playwright-cli/
+**/output/
+**/preview.png
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Runtime data and credentials must stay outside source and releases.
+.env
+.env.*
+!.env.example
+keys.json
+settings.json
+devices.json
+last-result.json
+last-error.json
+wifi-pending.json
+*.sqlite*
+*.db
+*.db-*
+*.pem
+*.key
+*.p12
+*.pfx
+*cookies*.json
+*cookies*.txt
+*storage-state*.json
+logs/
+backups/
+
+# Keep only the current distributable ZIPs in Git; preserve older files locally.
+/dist/*.zip
+/dist/*.zip.sha256
+!/dist/clash-go-0.2.1.zip
+!/dist/clash-go-0.2.1.zip.sha256
+!/dist/desktop-diary-0.2.2.zip
+!/dist/desktop-diary-0.2.2.zip.sha256

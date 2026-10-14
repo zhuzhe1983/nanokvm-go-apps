@@ -1,0 +1,14 @@
+{
+  "version": "v1.19.32",
+  "asset": "mihomo-linux-armv7-v1.19.32.gz",
+  "sha256": "f622cbe903ba1a11d30e9071d1c5373929c675b854856ff3e7f977255a25bb66",
+  "source": "https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.32",
+  "oix": {
+    "version": "alpha-oix-9a6b3c1",
+    "asset": "mihomo-linux-armv7-alpha-oix-9a6b3c1.gz",
+    "sha256": "4403d22814c9bd6fc1d0d7f0229e58aa5540232436dc0490f0cfff15f18485a1",
+    "source": "https://github.com/vernesong/mihomo-oix/tree/9a6b3c1ced307ac78f3725c8a847420df4a486f3",
+    "release": "https://github.com/vernesong/mihomo-oix/releases/tag/Pre-Alpha",
+    "checksum_source": "https://github.com/vernesong/mihomo-oix/releases/download/Pre-Alpha/checksums.txt"
+  }
+}

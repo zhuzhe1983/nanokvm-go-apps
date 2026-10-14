@@ -1,0 +1,39 @@
+{
+  "app_id": "ai.nanokvm.desktop_diary",
+  "name": "Desktop Diary",
+  "creator": "zhuzhe",
+  "create_time": "2026-10-13",
+  "version": "0.2.2",
+  "desc": "按设备记录桌面日记，显示去重标签云。本地 OCR 或独立远程视觉，默认 30 秒。",
+  "category": "productivity",
+  "env": {
+    "DIARY_VISION_BASE_URL": {
+      "label": "远程视觉 Base URL",
+      "default": "",
+      "required": false,
+      "secret": false,
+      "description": "OpenAI 兼容地址，以 /v1 结尾；配置后在设备设置页选择远程视觉"
+    },
+    "DIARY_VISION_MODEL": {
+      "label": "视觉模型 ID",
+      "default": "qwen3.8-27b-uncensored-mtp-q4",
+      "required": false,
+      "secret": false,
+      "description": "须与服务实际提供的多模态模型 ID 一致"
+    },
+    "DIARY_VISION_API_KEY": {
+      "label": "远程模型 API Key",
+      "default": "",
+      "required": false,
+      "secret": true,
+      "description": "由应用配置管理，不写进日志或发布包"
+    },
+    "DIARY_MCP_API_KEY": {
+      "label": "本机 NanoKVM MCP Key",
+      "default": "",
+      "required": false,
+      "secret": true,
+      "description": "来自设置 → AI → MCP；开发设备也支持受保护的本机令牌文件"
+    }
+  }
+}

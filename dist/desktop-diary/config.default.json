@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "device_id": "",
+  "device_name": "",
+  "device_session": "",
+  "paused": true,
+  "show_cloud": true,
+  "backend": "local_ocr",
+  "interval_seconds": 30,
+  "timezone": "Asia/Shanghai",
+  "cloud_window_seconds": 1800,
+  "cloud_half_life_seconds": 300,
+  "palette": {
+    "melancholy": {"name": "抑郁／低落", "color": "#6C9CFF"},
+    "adult": {"name": "色情／成人", "color": "#F4D35E"},
+    "positive": {"name": "愉快", "color": "#FFAA67"},
+    "relaxed": {"name": "轻松", "color": "#80C7A4"},
+    "focus": {"name": "专注", "color": "#75CFDC"},
+    "tense": {"name": "紧张", "color": "#BC9CE8"},
+    "neutral": {"name": "中性", "color": "#C5C9D3"}
+  }
+}
