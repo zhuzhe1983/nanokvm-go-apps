@@ -70,8 +70,12 @@ class Network:
             # Pi-hole Go filters USB DNS before forwarding allowed queries to
             # Mihomo. Preserve that order when proxy/sharing is toggled again.
             if not six and table == "nat" and parent == "PREROUTING" and rule == ["-i", "usb0", "-j", "CG_DNS"]:
-                if self.ipt("nat", "-C", "PREROUTING", "-i", "usb0", "-j", "PG_DNS", check=False).returncode == 0:
-                    position = "2"
+                existing = [line.split() for line in self.ipt(table, "-S", parent).stdout.splitlines()
+                            if line.startswith("-A ")]
+                for index, entry in enumerate(existing):
+                    if entry == ["-A", parent, "-i", "usb0", "-j", "PG_DNS"]:
+                        position = str(index + 2)
+                        break
             self.ipt(table, "-I", parent, position, *rule, six=six)
 
     def cleanup(self):

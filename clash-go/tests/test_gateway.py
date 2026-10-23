@@ -109,11 +109,12 @@ class GatewayTests(unittest.TestCase):
             self.assertNotIn(secret, status)
 
     def test_dns_hook_preserves_pihole_precedence(self):
-        for present, expected in ((True, '2'), (False, '1')):
+        pg = '-A PREROUTING -i usb0 -j PG_DNS'
+        for existing, expected in ((pg, '2'), ('', '1'), ('-A PREROUTING -j FOREIGN\n' + pg, '3')):
             calls = []
             def ipt(table, *args, **kwargs):
                 calls.append((table, *args))
-                return Mock(returncode=0 if '-C' in args and 'PG_DNS' in args and present else 1)
+                return Mock(returncode=0 if '-S' in args else 1, stdout='-P PREROUTING ACCEPT\n' + existing)
             net = Network(self.root)
             net.ipt = ipt
             net.hook('nat', 'PREROUTING', ['-i', 'usb0', '-j', 'CG_DNS'])
