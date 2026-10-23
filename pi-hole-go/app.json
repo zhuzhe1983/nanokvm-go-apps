@@ -1,0 +1,10 @@
+{
+  "app_id": "ai.nanokvm.pi_hole_go",
+  "name": "Pi-hole Go",
+  "creator": "zhuzhe",
+  "create_time": "2026-10-23",
+  "version": "0.1.0",
+  "desc": "Pi-hole DNS ad blocking for USB devices sharing NanoKVM Wi-Fi.",
+  "category": "network",
+  "post_script": "scripts/install.sh"
+}

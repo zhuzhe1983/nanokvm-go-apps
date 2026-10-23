@@ -1,0 +1,17 @@
+{
+  "version": "v6.8",
+  "asset": "pihole-FTL-v6.8-armv7.gz",
+  "sha256": "b25d8c0e4d40f66ae27fff3a8d5f9142d28c2866db6c46048568150efb4bfe76",
+  "binary_sha256": "7c4b59b1f62554dbf3e992013959224a52c4ae69ee8f29708ce756cea051a88f",
+  "source": "https://github.com/pi-hole/FTL/tree/29c8b13f4bba0c4f4f47598e45a65cbf1cedac88",
+  "release": "https://github.com/pi-hole/FTL/releases/tag/v6.8",
+  "schema_source": "https://github.com/pi-hole/pi-hole/blob/f503a65d3a07cb71fd931389f1d3babf718249aa/advanced/Templates/gravity.db.sql",
+  "blocklist": {
+    "name": "HaGeZi Light",
+    "asset": "hagezi-light.txt.gz",
+    "source": "https://github.com/hagezi/dns-blocklists/tree/8e092ab8f5e09f06cf66dd90fb11be3055c4090f",
+    "update_url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt",
+    "sha256": "e7dffdc9844a180dcc2a88d7fe48dc963f8ddc2296f4d3770721c36df5b1fe72",
+    "compressed_sha256": "83d7313dd870d8765cad380c5f75d60c711d0fc3cb574dd47c49e85207d0c30b"
+  }
+}

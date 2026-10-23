@@ -66,7 +66,13 @@ class Network:
 
     def hook(self, table, parent, rule, six=False):
         if self.ipt(table, "-C", parent, *rule, six=six, check=False).returncode:
-            self.ipt(table, "-I", parent, "1", *rule, six=six)
+            position = "1"
+            # Pi-hole Go filters USB DNS before forwarding allowed queries to
+            # Mihomo. Preserve that order when proxy/sharing is toggled again.
+            if not six and table == "nat" and parent == "PREROUTING" and rule == ["-i", "usb0", "-j", "CG_DNS"]:
+                if self.ipt("nat", "-C", "PREROUTING", "-i", "usb0", "-j", "PG_DNS", check=False).returncode == 0:
+                    position = "2"
+            self.ipt(table, "-I", parent, position, *rule, six=six)
 
     def cleanup(self):
         for table, parent, name, rule, six in self.hooks():

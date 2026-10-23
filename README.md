@@ -5,7 +5,8 @@
 | 应用 | 版本 | 功能 | 发布包 |
 | --- | --- | --- | --- |
 | [Desktop Diary](desktop-diary/README.md) | 0.2.2 | 每 30 秒观察桌面，按设备记录 TXT，中文标签云；独立的本地 OCR / 远程视觉模式 | [ZIP](dist/desktop-diary-0.2.2.zip) · [SHA-256](dist/desktop-diary-0.2.2.zip.sha256) |
-| [Clash Go](clash-go/README.md) | 0.2.2 | Mihomo 代理、USB 网络共享、oixCloud、HTTPS 网络配置、节点延迟与彩色国旗 | [ZIP](dist/clash-go-0.2.2.zip) · [SHA-256](dist/clash-go-0.2.2.zip.sha256) |
+| [Clash Go](clash-go/README.md) | 0.2.3 | Mihomo 代理、USB 网络共享、oixCloud、节点延迟；兼容 Pi-hole DNS 过滤 | [ZIP](dist/clash-go-0.2.3.zip) · [SHA-256](dist/clash-go-0.2.3.zip.sha256) |
+| [Pi-hole Go](pi-hole-go/README.md) | 0.1.0 | USB 网络广告过滤、触屏开关、白名单与规则更新；待实机验证 | [ZIP](dist/pi-hole-go-0.1.0.zip) · [SHA-256](dist/pi-hole-go-0.1.0.zip.sha256) |
 
 ## 安装
 
@@ -13,8 +14,9 @@
 
 - **Desktop Diary**：首次启动暂停，确认被控设备档案后开始记录。完整画面描述需要自行配置支持图像输入的 OpenAI 兼容服务；Go+ 本地 OCR 仅做文字摘录和规则标签。模型地址、模型 ID、模型密钥和 MCP 密钥在官方应用配置表单填写。
 - **Clash Go**：首次安装代理和 USB 共享关闭；升级保留已有设置。小屏“网络配置 → 网页配置”显示地址及 6 位配置码，浏览器通过 HTTPS 访问 8443 端口。自行提供订阅或 oixCloud Access Token。节点延迟为 HTTPS 请求耗时，不是带宽测速。
+- **Pi-hole Go**：先开启 Clash Go 的 USB 共享，再从小屏开启广告拦截。“过滤设置”显示 HTTPS 8444 地址和独立配置码。仅过滤通过 NanoKVM USB 网卡上网的设备，家里其他 Wi-Fi 设备不会自动加入。
 
-Clash Go 的后台网络服务在退出触摸面板后继续运行；Desktop Diary 退出后停止采集。可在 Clash Go 提供网络时使用桌面日记。游戏伴侣和智能运维目前是设计方向，尚未实现。
+Clash Go 与 Pi-hole Go 的后台网络服务在退出触摸面板后继续运行；Desktop Diary 退出后停止采集。可在网络服务运行时使用桌面日记。游戏伴侣和智能运维目前是设计方向，尚未实现。
 
 ## 开发与构建
 
@@ -23,8 +25,10 @@ Clash Go 的后台网络服务在退出触摸面板后继续运行；Desktop Dia
 ```sh
 python3 -m unittest discover -s desktop-diary/tests -v
 python3 -m unittest discover -s clash-go/tests -v
+python3 -m unittest discover -s pi-hole-go/tests -v
 python3 desktop-diary/build.py
 python3 clash-go/build.py
+python3 pi-hole-go/build.py
 ```
 
 构建脚本按文件白名单生成 `dist/<app>/` 和单顶级目录的 ZIP。仓库仅保留当前版本的发布包；新版本需要同步 README 和 `.gitignore` 中的 ZIP 白名单。历史发布包和调试资料可留在本地，不参与提交。

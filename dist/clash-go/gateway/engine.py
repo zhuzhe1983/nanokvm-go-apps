@@ -323,7 +323,7 @@ class Engine:
         latencies, latency_busy = self.latency.snapshot(names)
         account = self.settings.get("oix", {})
         managed = self.settings.get("source") == "oix"
-        return {"version": "0.2.2", "core_version": oix.VERSION if managed else "v1.19.32", "running": running,
+        return {"version": "0.2.3", "core_version": oix.VERSION if managed else "v1.19.32", "running": running,
                 "source": self.settings.get("source", "subscription"),
                 "oix": {"connected": bool(account.get("token")), "active": managed,
                         "account": {k: account.get("account", {}).get(k, "") for k in oix.FIELDS},

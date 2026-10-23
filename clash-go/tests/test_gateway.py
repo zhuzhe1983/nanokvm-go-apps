@@ -108,6 +108,17 @@ class GatewayTests(unittest.TestCase):
         for secret in ("private-sub", engine.keys["pin"], engine.keys["api"]):
             self.assertNotIn(secret, status)
 
+    def test_dns_hook_preserves_pihole_precedence(self):
+        for present, expected in ((True, '2'), (False, '1')):
+            calls = []
+            def ipt(table, *args, **kwargs):
+                calls.append((table, *args))
+                return Mock(returncode=0 if '-C' in args and 'PG_DNS' in args and present else 1)
+            net = Network(self.root)
+            net.ipt = ipt
+            net.hook('nat', 'PREROUTING', ['-i', 'usb0', '-j', 'CG_DNS'])
+            self.assertEqual(calls[-1], ('nat', '-I', 'PREROUTING', expected, '-i', 'usb0', '-j', 'CG_DNS'))
+
     def test_controller_readiness_waits_for_tun(self):
         engine = Engine(self.root)
         engine.api = Mock(return_value={"type": "Selector"})

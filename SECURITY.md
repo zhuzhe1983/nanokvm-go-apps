@@ -7,6 +7,7 @@
 - `desktop-diary/app.json` 中 `secret` 字段的默认值必须为空，不应出现设备安装后保存的 `value` 字段。不要把设备上的 app.json 直接复制回来发布。
 - `config.default.json` 只放无凭据的通用设置。每台设备自己的配置与日志保存在 `/var/lib/nanokvm-agent/`。
 - Clash Go 的账号、订阅、节点凭据及配置码由设备生成或由用户填写，不内置在源码和发布包。
+- Pi-hole Go 的网页配置码与内核 API 密钥同样仅在设备生成；运行时 DNS 数据库、规则缓存和诊断日志不提交。
 - 第三方核心使用 `vendor/manifest.json` 固定的来源与 SHA-256；保留其许可证，不将本机生成的运行配置打入包内。
 
 ## 提交前
